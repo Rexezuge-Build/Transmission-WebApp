@@ -36,15 +36,6 @@ int main(void) {
   // Set Environment Variable
   putenv("TRANSMISSION_WEB_HOME=/.TransmissionWebControl");
 
-  // First-time Setup
-  if (access("/etc/transmission-daemon/settings.json.bak", F_OK) == -1) {
-    system("/.setAuth.sh");
-  }
-
-  // Unset Environment Variable
-  unsetenv("USERNAME");
-  unsetenv("PASSWORD");
-
   runService_Transmission();
 
   // Collect Zombine Process
