@@ -14,7 +14,7 @@ RUN apk add --no-cache transmission-daemon
 
 RUN mkdir -p /etc/transmission-daemon
 
-COPY .FILES/etc/transmission-daemon/ /etc/transmission-daemon/
+COPY .FILES/settings.json /etc/transmission-daemon/settings.json
 
 COPY --from=0 /Init.out /usr/bin/init
 
