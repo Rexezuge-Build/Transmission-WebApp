@@ -20,6 +20,10 @@ COPY --from=0 /Init.out /usr/bin/init
 
 COPY --from=0 /transmission-web-control/src /.TransmissionWebControl
 
+FROM scratch
+
+COPY --from=1 / /
+
 VOLUME ["/transmission/downloads"]
 
 EXPOSE 9091/tcp
