@@ -14,6 +14,8 @@ RUN apk add --no-cache transmission-daemon
 
 RUN mkdir -p /etc/transmission-daemon
 
+RUN rm -rf /sbin/apk /lib/apk /etc/apk
+
 COPY .FILES/settings.json /etc/transmission-daemon/settings.json
 
 COPY --from=0 /Init.out /usr/bin/init
@@ -25,6 +27,8 @@ FROM scratch
 COPY --from=1 / /
 
 VOLUME ["/transmission/downloads"]
+
+VOLUME ["/etc/transmission-daemon"]
 
 EXPOSE 9091/tcp
 
