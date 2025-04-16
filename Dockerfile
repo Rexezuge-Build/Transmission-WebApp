@@ -14,7 +14,7 @@ RUN apk add --no-cache transmission-daemon
 
 RUN mkdir -p /etc/transmission-daemon
 
-RUN rm -rf /sbin/apk /lib/apk /etc/apk
+RUN rm -rf /sbin/apk /lib/apk /etc/apk /var/lib/apk /usr/share/apk-tools
 
 COPY .FILES/settings.json /etc/transmission-daemon/settings.json
 
