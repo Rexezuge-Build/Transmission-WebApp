@@ -74,7 +74,7 @@
     "tcp-enabled": true,
     "torrent-added-verify-mode": "fast",
     "trash-original-torrent-files": false,
-    "umask": "002",
+    "umask": "022",
     "upload-slots-per-torrent": 14,
     "utp-enabled": false,
     "watch-dir": "/watch",
