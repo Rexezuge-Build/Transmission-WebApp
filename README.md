@@ -13,6 +13,8 @@ docker run -d \
     --restart=unless-stopped \
     --log-driver=none \
     -p 9091:9091/tcp \
+    -p 51413:51413/tcp \
+    -p 51413:51413/udp \
     --volume Transmission_DATA:/etc/transmission-daemon \
     --volume Transmission_DOWNLOAD:/transmission/downloads \
     rexezugebuild/transmission
