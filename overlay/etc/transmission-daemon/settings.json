@@ -70,7 +70,7 @@
     "speed-limit-down-enabled": false,
     "speed-limit-up": 100,
     "speed-limit-up-enabled": false,
-    "start-added-torrents": true,
+    "start-added-torrents": false,
     "tcp-enabled": true,
     "torrent-added-verify-mode": "fast",
     "trash-original-torrent-files": false,
