@@ -12,6 +12,7 @@ docker run -d \
     --name Transmission \
     --restart=unless-stopped \
     --log-driver=none \
+    -p 9091:9091/tcp \
     --volume Transmission_DATA:/etc/transmission-daemon \
     --volume Transmission_DOWNLOAD:/transmission/downloads \
     rexezugebuild/transmission
@@ -24,4 +25,5 @@ docker run -d \
 ## Dependency
 
 [Transmission-Web-Control](https://github.com/ronggang/transmission-web-control)
+
 
