@@ -2,10 +2,19 @@
 
 Light weight container ships with both transmission daemon and web interface
 
-## Pull
+## Run
 
-```shell
-docker pull rexezuge/transmission:release
+```bash
+docker pull rexezugebuild/transmission
+docker volume create Transmission_DATA
+docker volume create Transmission_DOWNLOAD
+docker run -d \
+    --name Transmission \
+    --restart=unless-stopped \
+    --log-driver=none \
+    --volume Transmission_DATA:/etc/transmission-daemon \
+    --volume Transmission_DOWNLOAD:/transmission/downloads \
+    rexezugebuild/transmission
 ```
 
 ## Source Code
@@ -15,3 +24,4 @@ docker pull rexezuge/transmission:release
 ## Dependency
 
 [Transmission-Web-Control](https://github.com/ronggang/transmission-web-control)
+
