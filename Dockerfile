@@ -14,7 +14,7 @@ RUN apk add --no-cache transmission-daemon
 
 RUN rm -rf /sbin/apk /lib/apk /etc/apk /var/lib/apk /usr/share/apk-tools
 
-ADD overlay/ /
+COPY overlay/ /
 
 COPY --from=0 /Init.out /usr/bin/init
 
