@@ -1,4 +1,4 @@
-FROM alpine:3
+FROM alpine:3 AS builder
 
 RUN apk add --no-cache build-base git
 
@@ -8,7 +8,7 @@ COPY Init.c Init.c
 
 RUN gcc -o Init.out -Ofast Init.c
 
-FROM alpine:3
+FROM alpine:3 AS runtime
 
 RUN apk add --no-cache transmission-daemon
 
@@ -16,13 +16,13 @@ RUN rm -rf /sbin/apk /lib/apk /etc/apk /var/lib/apk /usr/share/apk-tools
 
 COPY overlay/ /
 
-COPY --from=0 /Init.out /usr/bin/init
+COPY --from=builder /Init.out /usr/bin/init
 
-COPY --from=0 /transmission-web-control/src /.TransmissionWebControl
+COPY --from=builder /transmission-web-control/src /.TransmissionWebControl
 
 FROM scratch
 
-COPY --from=1 / /
+COPY --from=runtime / /
 
 VOLUME ["/transmission/downloads"]
 
